@@ -16,7 +16,9 @@ export class BookFacade {
   private readonly dialog = inject(MatDialog);
 
   public readonly books: Signal<Book[]> = toSignal(this.store.select(BookSelectors.books), { initialValue: [] });
-  public readonly filters: Signal<{ searchTerm: string | null }> = toSignal(this.store.select(BookSelectors.filters), { initialValue: { searchTerm: null } });
+  public readonly filters: Signal<{ searchTerm: string | null }> = toSignal(this.store.select(BookSelectors.filters), {
+    initialValue: { searchTerm: null },
+  });
   public readonly loading: Signal<boolean | undefined> = toSignal(this.store.select(BookSelectors.loading));
   public readonly error: Signal<string | null | undefined> = toSignal(this.store.select(BookSelectors.error));
 
@@ -27,7 +29,7 @@ export class BookFacade {
   public loadBooks(): void {
     this.store.dispatch(BookActions.loadBooks());
   }
-  
+
   public openAddBookModal(): void {
     const dialogRef = this.dialog.open(BookItemModalComponent);
 
@@ -61,7 +63,7 @@ export class BookFacade {
       }
     });
   }
-  
+
   private addBook(book: Book): void {
     this.store.dispatch(BookActions.addBook({ book }));
   }
