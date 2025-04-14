@@ -1,0 +1,22 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title class="title">{{ book().title }}</mat-card-title>
+    <mat-card-subtitle class="subtitle">{{ book().author }} — {{ book().publicationYear }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="card-content">
+    <p class="description">{{ book().description }}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="actions">
+    <div class="rating">
+      <mat-icon>star_rate</mat-icon> {{ book().rating }}/5
+    </div>
+      <button mat-icon-button class="edit-button action-button" (click)="edit.emit(book())">
+      <mat-icon class="button-icon">edit</mat-icon>
+    </button>
+    <button mat-icon-button class="delete-button action-button" color="warn" (click)="delete.emit(book())">
+      <mat-icon class="button-icon">delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

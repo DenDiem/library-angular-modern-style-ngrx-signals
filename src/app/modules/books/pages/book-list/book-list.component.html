@@ -1,0 +1,27 @@
+<div class="book-filter">
+  <app-filter [filters]="filters()" (filter)="filter($event)"></app-filter>
+</div>
+
+<div class="book-list-container">
+  <div
+    class="book-list"
+    [@listAnimation]="books().length"
+    (@listAnimation.start)="onAnimationStart()"
+    (@listAnimation.done)="onAnimationDone()"
+  >
+    @for (book of books(); track book.id) {
+      <app-book-item 
+        [book]="book" 
+        (edit)="openEditBookModal($event)"
+        (delete)="openDeleteBookModal($event)">
+      </app-book-item>
+    }
+  </div>
+  @if (emptyState()) {
+    <div class="empty-message">No books found.</div>
+  }
+</div>
+
+<button mat-fab color="primary" aria-label="Add Book" class="add-book-button" (click)="openAddBookModal()">
+  <mat-icon class="add-book-icon">add</mat-icon>
+</button>

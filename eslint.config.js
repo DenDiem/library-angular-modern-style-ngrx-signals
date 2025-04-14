@@ -55,7 +55,9 @@ module.exports = tseslint.config(
         },
       ],
       'simple-import-sort/exports': 'warn',
-      'unused-imports/no-unused-imports': 'warn',
+      'unused-imports/no-unused-imports': 'error',
+      '@typescript-eslint/no-namespace': 'off',
+      'semi': ['error', 'always'],
     },
   },
   {

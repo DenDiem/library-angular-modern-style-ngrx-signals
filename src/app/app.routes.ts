@@ -1,12 +1,20 @@
-import { Routes } from '@angular/router'
+import { Routes } from '@angular/router';
+import { MainLayoutComponent } from './modules/main-layout/layout/main-layout.component'
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./pages/home/home.page'),
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'books',
+        loadChildren: () => import('./modules/books/book.routes'),
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'books',
+      },
+    ],
   },
-  {
-    path: 'other',
-    loadComponent: () => import('./pages/other/other.page'),
-  },
-]
+];

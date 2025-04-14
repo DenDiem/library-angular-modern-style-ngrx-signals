@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>{{ isEditMode() ? 'Edit Book' : 'Add Book' }}</h2>
+
+<mat-dialog-content>
+  <div [formGroup]="bookForm" class="book-edit-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Author</mat-label>
+    <input matInput formControlName="author" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Publication Year</mat-label>
+    <input matInput formControlName="publicationYear" type="number" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Rating</mat-label>
+    <input matInput formControlName="rating" type="number" step="0.1" min="0" max="5" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" rows="4"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="submit()" [disabled]="bookForm.invalid">
+    {{ isEditMode() ? 'Update' : 'Create' }}
+  </button>
+</mat-dialog-actions>

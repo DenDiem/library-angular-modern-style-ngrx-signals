@@ -1,0 +1,26 @@
+:host {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 8rem 1fr 1.5rem;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fefefe;
+    border-bottom: 1px solid #e0e0e0;
+
+    .header-title {
+      font-size: 3.5rem;
+      font-weight: 600;
+    }
+  }
+
+  .footer {
+    padding-right: 1.25rem;
+    text-align: left;
+    font-size: 0.875rem;
+    color: #666;
+    opacity: 0.5;
+  }
+}

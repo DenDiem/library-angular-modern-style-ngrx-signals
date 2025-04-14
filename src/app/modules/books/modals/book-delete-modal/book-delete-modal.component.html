@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Delete Book</h2>
+
+<mat-dialog-content>
+<p class="book-delete-modal-content">
+  Are you sure you want to delete <span class="strong-red">{{ book.title }}</span> by {{ book.author }}?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-flat-button color="warn" (click)="confirm()">Delete</button>
+</mat-dialog-actions>

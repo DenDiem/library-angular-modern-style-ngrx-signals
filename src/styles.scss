@@ -11,3 +11,13 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root{
+  --mdc-outlined-button-container-shape: 4px;
+  --mdc-fab-container-color: green;
+}
