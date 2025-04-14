@@ -27,7 +27,6 @@ export class BookFacade {
   public loadBooks(): void {
     this.store.dispatch(BookActions.loadBooks());
   }
-
   
   public openAddBookModal(): void {
     const dialogRef = this.dialog.open(BookItemModalComponent);
