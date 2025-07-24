@@ -1,7 +1,7 @@
-import { Component, computed, effect, Inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, Inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 
@@ -10,9 +10,10 @@ import type { Book, BookForm } from '../../entities/book.interface';
 @Component({
   selector: 'app-book-item',
   standalone: true,
-  imports: [MatFormField, MatInput, MatDialogModule, MatButton, ReactiveFormsModule, MatLabel],
+  imports: [MatFormField, MatInput, MatDialogTitle, MatDialogContent, MatDialogActions, MatButton, ReactiveFormsModule, MatLabel],
   templateUrl: './book-item-modal.component.html',
-  styleUrls: ['./book-item-modal.component.scss'],
+  styleUrl: './book-item-modal.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookItemModalComponent {
   protected readonly book = signal<Book | null>(null);

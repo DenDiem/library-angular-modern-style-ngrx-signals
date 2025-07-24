@@ -7,6 +7,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -14,10 +15,24 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
-:root{
+:root {
   --mdc-outlined-button-container-shape: 4px;
   --mdc-fab-container-color: green;
+}
+
+/* Performance optimizations */
+.mat-mdc-card {
+  will-change: transform;
+}
+
+.mat-mdc-button {
+  contain: layout style paint;
+}
+
+/* Reduce layout shifts */
+img {
+  max-width: 100%;
+  height: auto;
 }

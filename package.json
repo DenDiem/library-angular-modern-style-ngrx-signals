@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production --stats-json",
+    "build:analyze": "ng build --configuration=production --stats-json && npx webpack-bundle-analyzer dist/test/stats.json",
+    "perf:check": "node scripts/performance-check.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
@@ -21,7 +24,9 @@
     "@angular/material-luxon-adapter": "^18.2.12",
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/pwa": "^18.2.20",
     "@angular/router": "^18.2.0",
+    "@angular/service-worker": "^18.2.0",
     "@ngrx/effects": "^18.1.1",
     "@ngrx/entity": "^18.1.1",
     "@ngrx/store": "^18.1.1",
@@ -66,6 +71,7 @@
     "tailwindcss-mso": "^1.4.1",
     "type-fest": "^4.26.1",
     "typescript": "~5.5.2",
-    "typescript-eslint": "8.10.0"
+    "typescript-eslint": "8.10.0",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }
