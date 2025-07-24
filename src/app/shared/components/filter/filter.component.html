@@ -1,6 +1,7 @@
-<div class="filter-form" [formGroup]="filterForm">
+<div class="filter-form">
   <mat-form-field subscriptSizing="dynamic" appearance="outline" class="filter-input">
-    <mat-label>Filter</mat-label>
-    <input matInput formControlName="searchTerm" />
+    <mat-label>Search</mat-label>
+    <input matInput [formControl]="searchControl" placeholder="Search books..." />
   </mat-form-field>
+  <button mat-button (click)="clearFilter()" type="button">Clear</button>
 </div>

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
 import { listAnimation } from '../../../../shared/animations/list.animation';
@@ -12,7 +12,7 @@ import { BookFacade } from '../../facades/book.facade';
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [BookItemComponent, MatIcon, FilterComponent, MatButtonModule],
+  imports: [BookItemComponent, MatIcon, FilterComponent, MatButton],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
